@@ -1,7 +1,6 @@
 package io.dz.faceunlock
 
 import android.content.Context
-import android.content.SharedPreferences
 import android.graphics.*
 import android.os.Bundle
 import android.os.Handler
@@ -66,6 +65,12 @@ class MainActivity : RxAppCompatActivity() {
         tempImageFace = "${getExternalFilesDir(null).absolutePath}/face_${System.currentTimeMillis()}.png"
 
         isUnlock = image_url2 != null
+
+        if (isUnlock) {
+            tv_title.text = "人脸比对"
+        } else {
+            tv_title.text = "人脸记录"
+        }
 
         hasCameraPermission = permissionsDelegate.hasCameraPermission()
 
